@@ -9,16 +9,16 @@ class User:
 
     def checking_integer_inputs(input):
         try:
-            # Trying to test whether the input was or wasn't an integer
+# Trying to test whether the input was or wasn't an integer
             val = int(input)
         except ValueError:
-                #This except rule prevents strings and floats from being an input giving us clean whole integers in the age and phone number section of the code
+#This except rule prevents strings and floats from being an input giving us clean whole integers in the age and phone number section of the code
                 print("This is not a valid input for this request, please try again")
 
     def full_name(self):
         print(self.firstn + " " + self.lastn)
 
-        # Creating a format for the user
+# Creating a format for the user
 
     def __str__(self):
         return_string = "--------------------------------------\n"
@@ -42,7 +42,8 @@ print("Please enter the contact's information")
 first_name = input("First Name = ")
 last_name = input("Last Name = ")
 
-# Finally created a way to only get integer inputs, there should be a way easier to use this for both age and phone number so that I don't have to type it twice but this will be a placeholder at least since it works as intended.
+# Finally created a way to only get integer inputs, there should be a way easier to use this for both age and phone
+# number so that I don't have to type it twice but this will be a placeholder at least since it works as intended.
 
 while True:
     try:
@@ -57,7 +58,7 @@ while True:
         phone_number=int(input("Phone Number = "))
         break
     except:
-        print("only integers allowed, please re-enter a number")
+        print("Only integers allowed, please re-enter a number")
         print("Thank you")
 
 dob = input("Their date of birth = ")
