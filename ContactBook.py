@@ -7,17 +7,9 @@ class User:
         self.phone_no = phone_no
         self.dob = dob
 
-    def checking_integer_inputs(input):
-        try:
-# Trying to test whether the input was or wasn't an integer
-            val = int(input)
-        except ValueError:
-#This except rule prevents strings and floats from being an input giving us clean whole integers in the age and phone number section of the code
-                print("This is not a valid input for this request, please try again")
-
     def full_name(self):
-        print(self.firstn + " " + self.lastn)
-
+        return f'{self.firstn} {self.lastn}'
+        
 # Creating a format for the user
 
     def __str__(self):
@@ -26,7 +18,7 @@ class User:
         return_string += "Their age is " + f"{self.age}\n"
         return_string += "And their phone number is " +f"{self.phone_no}\n"
         return_string += "And their date of birth is " + f"{self.dob}\n"
-        return_string += "--------------------------------------\n"
+        return_string += "--------------------------------------"
         return return_string
 
 # List data structure creates an empty section of memory that can be edit stuff onto it
@@ -40,10 +32,11 @@ print("Welcome to " + User_name + "'s Contact Book")
 
 # Using list, now the code will display options in a while loop for the user to use;
 
-while users_input != "q":
+while users_input != "e":
     print("Please select one of these options:")
     print("1 - Input a contact")
     print("2- Display contacts")
+    print("3 - Search for a contact")
     print("e - Exit terminal")
     users_input = input("Select option: ")
 
@@ -52,7 +45,8 @@ while users_input != "q":
         print("Please enter the contact's information")
 
 # This will be user input
-# There will be specific data types for each one, ages should be number integers as well as phonenumbers, preventing any type of non-numerical inputs
+# There will be specific data types for each one, ages should be number integers as well as phonenumbers,
+# preventing any type of non-numerical inputs
         first_name = input("First Name = ")
         last_name = input("Last Name = ")
 
@@ -78,10 +72,23 @@ while users_input != "q":
         dob = input("Their date of birth = ")
 
         the_contact = User(first_name, last_name, age, phone_number, dob)
+# This stores the contact data
+        contacts.append(the_contact)
         print("Thank you")
-    elif users_input.lower() == "q":
+    elif users_input == "2":
+        for contact in contacts:
+            print(contact)
+        input("All contacts have now been displayed. Please press the Enter key to continue")
+# The .lower function allows the iser to input a capital 'e' "(E)" and the string method would still accept it as the
+# exit function. Just a small quality of life feature.
+    elif users_input == "3":
+        search = input("Enter a contact's name to search for\n")
+        for contact in contacts:
+            if search in contact.full_name():
+                print(contact)
+
+            
+    elif users_input.lower() == "e":
         break
 
 print("Thank You")
-
-print(the_contact)
