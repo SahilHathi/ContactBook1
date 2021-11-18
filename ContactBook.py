@@ -29,43 +29,59 @@ class User:
         return_string += "--------------------------------------\n"
         return return_string
 
+# List data structure creates an empty section of memory that can be edit stuff onto it
+
+contacts = list()
+users_input = ""
 
 User_name = input("What is your name? ")
 
 print("Welcome to " + User_name + "'s Contact Book")
 
-print("Please enter the contact's information")
+# Using list, now the code will display options in a while loop for the user to use;
+
+while users_input != "q":
+    print("Please select one of these options:")
+    print("1 - Input a contact")
+    print("2- Display contacts")
+    print("e - Exit terminal")
+    users_input = input("Select option: ")
+
+# Create a conditional check
+    if users_input == "1":
+        print("Please enter the contact's information")
 
 # This will be user input
 # There will be specific data types for each one, ages should be number integers as well as phonenumbers, preventing any type of non-numerical inputs
-
-first_name = input("First Name = ")
-last_name = input("Last Name = ")
+        first_name = input("First Name = ")
+        last_name = input("Last Name = ")
 
 # Finally created a way to only get integer inputs, there should be a way easier to use this for both age and phone
 # number so that I don't have to type it twice but this will be a placeholder at least since it works as intended.
 
-while True:
-    try:
-        age=int(input("Age = "))
-        break
-    except:
-        print("only integers allowed, please re-enter a number")
+        while True:
+            try:
+                age=int(input("Age = "))
+                break
+            except:
+                print("only integers allowed, please re-enter a number")
+                print("Thank you")
+
+        while True:
+            try:
+                phone_number=int(input("Phone Number = "))
+                break
+            except:
+                print("Only integers allowed, please re-enter a number")
+                print("Thank you")
+
+        dob = input("Their date of birth = ")
+
+        the_contact = User(first_name, last_name, age, phone_number, dob)
         print("Thank you")
-
-while True:
-    try:
-        phone_number=int(input("Phone Number = "))
+    elif users_input.lower() == "q":
         break
-    except:
-        print("Only integers allowed, please re-enter a number")
-        print("Thank you")
-
-dob = input("Their date of birth = ")
-
 
 print("Thank You")
 
-the_contact = User(first_name, last_name, age, phone_number, dob)
 print(the_contact)
-
