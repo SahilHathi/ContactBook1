@@ -95,7 +95,7 @@ while users_input != "e":
                 print("Only integers allowed, please re-enter a number")
                 print("Thank you")
 
-        dob = input("Their date of birth = ")
+        dob = input("Their date of birth (dd/mm/yyyy) = ")
 
         the_contact = User(first_name, last_name, age, phone_number, dob)
 
