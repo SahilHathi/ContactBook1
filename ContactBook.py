@@ -91,4 +91,10 @@ while users_input != "e":
     elif users_input.lower() == "e":
         break
 
+# If the file doesn't exist this should handle that gap of information
+with open("contacts.csv", "w") as f:
+    for contact in contacts:
+        f.write(f'{contact.firstn}, {contact.lastn}, {contact.age}, {contact.phone_no}, {contact.dob}')
+
+
 print("Thank You")
